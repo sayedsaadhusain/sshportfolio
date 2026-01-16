@@ -3,23 +3,25 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { Download } from "lucide-react"
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 
 export default function Hero() {
   return (
-    <section className="w-full py-20 md:py-32 lg:py-40 xl:py-48 bg-gradient-to-br from-blue-950 via-blue-800 to-blue-900 overflow-hidden relative">
-      <div className="container mx-auto px-4 md:px-6 max-w-screen-xl relative z-10">
+    <BackgroundBeamsWithCollision className="w-full min-h-[80vh] flex flex-col items-center justify-center">
+      <div className="container mx-auto px-4 md:px-6 max-w-screen-xl relative z-10 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center space-y-6 text-center"
+          className="flex flex-col items-center justify-center space-y-4 text-center"
         >
-          <div className="space-y-4 max-w-3xl mx-auto">
+          <div className="space-y-3 max-w-3xl mx-auto">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-white"
+              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-white drop-shadow-md"
             >
               Hi, I'm <span className="text-blue-300">Sayed Saad</span>
             </motion.h1>
@@ -28,7 +30,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="mx-auto max-w-[700px] text-lg md:text-xl text-gray-200"
+              className="mx-auto max-w-[700px] text-lg md:text-xl text-gray-200 drop-shadow-sm"
             >
               Full Stack Developer specializing in modern web technologies
             </motion.p>
@@ -38,28 +40,34 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4 mt-8"
+            className="flex flex-wrap justify-center gap-4 mt-6"
           >
             <Link href="#projects">
-              <Button size="lg" className="min-w-[140px] bg-blue-600 hover:bg-blue-700 text-white transition-all">
+              <Button size="lg" className="min-w-[140px] bg-blue-600 hover:bg-blue-700 text-white transition-all z-20 relative">
                 View Projects
               </Button>
             </Link>
             <Link href="#contact">
-              <Button variant="outline" size="lg" className="min-w-[140px] border-white text-white hover:bg-white/10">
+              <Button variant="outline" size="lg" className="min-w-[140px] bg-transparent border-white text-white hover:bg-white/10 z-20 relative">
                 Contact Me
               </Button>
             </Link>
+            <a href="/Saad_Resume.pdf" download target="_blank" rel="noopener noreferrer" className="z-20 relative">
+              <Button variant="outline" size="lg" className="min-w-[140px] bg-transparent border-white text-white hover:bg-white/10">
+                <Download className="mr-2 h-5 w-5" />
+                Resume
+              </Button>
+            </a>
           </motion.div>
         </motion.div>
 
         {/* Subtle code brackets */}
-        <div className="absolute inset-0 flex items-center justify-between px-10 pointer-events-none opacity-10">
+        <div className="absolute inset-0 flex items-center justify-between px-10 pointer-events-none opacity-10 top-1/2 -translate-y-1/2 w-full">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="text-white text-8xl font-mono"
+            className="text-white text-8xl font-mono hidden md:block"
           >
             {"<"}
           </motion.div>
@@ -67,19 +75,16 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="text-white text-8xl font-mono"
+            className="text-white text-8xl font-mono hidden md:block"
           >
             {"/>"}
           </motion.div>
         </div>
       </div>
 
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent pointer-events-none"></div>
-
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -102,6 +107,6 @@ export default function Hero() {
           />
         </div>
       </motion.div>
-    </section>
+    </BackgroundBeamsWithCollision>
   )
 }

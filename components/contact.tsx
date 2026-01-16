@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, Phone, Twitter } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { BackgroundBeams } from "@/components/ui/background-beams"
 
 export default function Contact() {
   const container = {
@@ -24,15 +25,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full py-20 md:py-28 lg:py-32 bg-gradient-to-br from-blue-950 via-blue-800 to-blue-900"
+      className="w-full py-16 md:py-20 lg:py-24 bg-gradient-to-br from-blue-950 via-blue-800 to-blue-900 relative"
     >
-      <div className="container mx-auto px-4 md:px-6 max-w-screen-xl">
+      <div className="container mx-auto px-4 md:px-6 max-w-screen-xl relative z-10">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={container}
-          className="mx-auto max-w-3xl space-y-10"
+          className="mx-auto max-w-3xl space-y-8"
         >
           <div className="space-y-2 text-center">
             <motion.h2
@@ -43,13 +44,13 @@ export default function Contact() {
             </motion.h2>
             <motion.p
               variants={item}
-              className="text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto max-w-[700px]"
+              className="text-gray-200 md:text-xl/normal lg:text-base/normal xl:text-xl/normal mx-auto max-w-[700px]"
             >
               Have a project in mind? Let's work together!
             </motion.p>
           </div>
 
-          <motion.div variants={item} className="flex flex-col items-center justify-center space-y-4">
+          <motion.div variants={item} className="flex flex-col items-center justify-center space-y-3">
             <p className="text-center max-w-[600px] mx-auto text-gray-200">
               I'm currently available for freelance work and full-time positions. If you have a project that needs some
               creative attention or if you're looking to hire, feel free to reach out!
@@ -67,7 +68,7 @@ export default function Contact() {
                 </Link>
               </Button>
 
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
                 <Link href="tel:+917266914546">
                   <Phone className="mr-2 h-5 w-5" />
                   +91 7266914546
@@ -105,6 +106,7 @@ export default function Contact() {
           </motion.div>
         </motion.div>
       </div>
+      <BackgroundBeams />
     </section>
   )
 }

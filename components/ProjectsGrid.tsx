@@ -24,7 +24,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
       variants={container}
-      className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+      className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     >
       {projects.map((project, index) => (
         <motion.div key={project.id || index} variants={item} custom={index}>

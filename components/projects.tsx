@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { Loader2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background"
 
 // Dynamically import the ProjectsGrid component (SSR disabled)
 const ProjectsGrid = dynamic(() => import("./ProjectsGrid"), { ssr: false })
@@ -94,9 +95,10 @@ export default function Projects() {
   }, [])
 
   return (
-    <section id="projects" className="w-full py-20 md:py-28 lg:py-32 bg-muted/20">
-      <div className="container mx-auto px-4 md:px-6 max-w-screen-xl">
-        <div className="text-center mb-10 max-w-3xl mx-auto space-y-2">
+    <section id="projects" className="w-full py-16 md:py-20 lg:py-24 relative overflow-hidden">
+      <DottedGlowBackground className="w-full h-full" />
+      <div className="container mx-auto px-4 md:px-6 max-w-screen-xl relative z-10">
+        <div className="text-center mb-8 max-w-3xl mx-auto space-y-2">
           <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl gradient-text">Projects</h2>
           <p className="text-muted-foreground text-base md:text-xl">
             Showcasing my recent work

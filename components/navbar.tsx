@@ -45,7 +45,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`sticky top-0 z-50 w-full transition-all duration-300 bg-blue-950 border-b border-blue-900`}
+      className={`sticky top-0 z-50 w-full transition-all duration-300 bg-blue-950 border-b border-transparent`}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="text-xl font-bold text-white">
@@ -69,7 +69,7 @@ export default function Navbar() {
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
-              className="ml-2 text-gray-200 hover:text-white"
+              className="ml-2 text-gray-200 hover:text-white hover:bg-white/10"
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -84,12 +84,12 @@ export default function Navbar() {
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
-              className="text-gray-200 hover:text-white"
+              className="text-gray-200 hover:text-white hover:bg-white/10"
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           )}
-          <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-gray-200 hover:text-white">
+          <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-gray-200 hover:text-white hover:bg-white/10">
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>

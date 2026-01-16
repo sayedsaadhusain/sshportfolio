@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-size: 15px;
+  }
+}
+
 /* Remove the problematic Google Fonts import */
 
 @layer base {
@@ -93,7 +99,7 @@
 
 /* Gradient text */
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-100;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-300 dark:to-blue-100;
 }
 
 /* Card hover effects */
@@ -112,9 +118,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
