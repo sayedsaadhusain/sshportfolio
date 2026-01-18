@@ -14,25 +14,35 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center space-y-4 text-center"
+          className="flex flex-col items-center justify-center space-y-6 text-center"
         >
-          <div className="space-y-3 max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-medium backdrop-blur-sm"
+          >
+            <span className="flex h-2 w-2 rounded-full bg-blue-400 mr-2 animate-pulse"></span>
+            Open to New Opportunities
+          </motion.div>
+
+          <div className="space-y-4 max-w-4xl mx-auto">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-white drop-shadow-md"
+              className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-7xl lg:text-8xl/none text-white drop-shadow-xl"
             >
-              Hi, I'm <span className="text-blue-300">Sayed Saad</span>
+              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">Sayed Saad</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="mx-auto max-w-[700px] text-lg md:text-xl text-gray-200 drop-shadow-sm"
+              className="mx-auto max-w-[700px] text-lg md:text-2xl text-gray-300 drop-shadow-md font-light"
             >
-              Full Stack Developer specializing in modern web technologies
+              Building <span className="font-semibold text-blue-200">exceptional</span> digital experiences with modern technology.
             </motion.p>
           </div>
 
@@ -40,20 +50,20 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4 mt-6"
+            className="flex flex-wrap justify-center gap-4 mt-8"
           >
             <Link href="#projects">
-              <Button size="lg" className="min-w-[140px] bg-blue-600 hover:bg-blue-700 text-white transition-all z-20 relative">
+              <Button size="lg" className="h-12 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/20 transition-all hover:scale-105 z-20 relative text-lg">
                 View Projects
               </Button>
             </Link>
             <Link href="#contact">
-              <Button variant="outline" size="lg" className="min-w-[140px] bg-transparent border-white text-white hover:bg-white/10 z-20 relative">
+              <Button variant="outline" size="lg" className="h-12 px-8 bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm z-20 relative text-lg min-w-[140px]">
                 Contact Me
               </Button>
             </Link>
             <a href="/Saad_Resume.pdf" download target="_blank" rel="noopener noreferrer" className="z-20 relative">
-              <Button variant="outline" size="lg" className="min-w-[140px] bg-transparent border-white text-white hover:bg-white/10">
+              <Button variant="outline" size="lg" className="h-12 px-8 bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm text-lg min-w-[140px]">
                 <Download className="mr-2 h-5 w-5" />
                 Resume
               </Button>
