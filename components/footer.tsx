@@ -26,7 +26,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="w-full border-t border-white/10 bg-black/40 backdrop-blur-2xl relative overflow-hidden pt-20 pb-10">
+    <footer className="w-full border-t border-border dark:border-white/10 bg-background/80 dark:bg-black/40 backdrop-blur-2xl relative overflow-hidden pt-20 pb-10">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] pointer-events-none -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[128px] pointer-events-none translate-y-1/2" />
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Links Columns */}
           <div className="lg:col-span-2 space-y-6">
-            <h3 className="font-semibold text-white tracking-wider text-sm uppercase">Navigation</h3>
+            <h3 className="font-semibold text-foreground dark:text-white tracking-wider text-sm uppercase">Navigation</h3>
             <ul className="space-y-3">
               {["Home", "About", "Projects", "Contact"].map((item) => (
                 <li key={item}>
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Newsletter / Contact Action */}
           <div className="lg:col-span-4 space-y-6">
-            <h3 className="font-semibold text-white tracking-wider text-sm uppercase">Stay Connected</h3>
+            <h3 className="font-semibold text-foreground dark:text-white tracking-wider text-sm uppercase">Stay Connected</h3>
             <p className="text-muted-foreground text-sm">
               Join my newsletter for the latest updates on my projects and tech articles.
             </p>
@@ -79,7 +79,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 w-full"
+                className="bg-muted dark:bg-white/5 border border-border dark:border-white/10 rounded-lg px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500/50 w-full"
               />
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
                 Subscribe
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         {/* Separator */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-border dark:via-white/10 to-transparent my-8" />
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -97,9 +97,9 @@ export default function Footer() {
             © {currentYear} Sayed Saad. Built with precision and passion.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-xs text-muted-foreground hover:text-white transition-colors">Terms of Service</Link>
-            <p className="text-xs text-muted-foreground flex items-center gap-1 bg-white/5 px-3 py-1 rounded-full border border-white/5">
+            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground dark:hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground dark:hover:text-white transition-colors">Terms of Service</Link>
+            <p className="text-xs text-muted-foreground flex items-center gap-1 bg-muted dark:bg-white/5 px-3 py-1 rounded-full border border-border dark:border-white/5">
               <Heart className="h-3 w-3 text-red-500 fill-red-500" />
               <span>Next.js & Tailwind</span>
             </p>
@@ -117,7 +117,7 @@ function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="h-8 w-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-300"
+      className="h-8 w-8 rounded-full bg-muted/50 dark:bg-white/5 border border-border dark:border-white/10 flex items-center justify-center text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-300"
     >
       {icon}
     </Link>

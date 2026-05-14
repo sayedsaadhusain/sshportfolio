@@ -144,7 +144,7 @@ export default function About() {
               </div>
 
               {/* AI & Automation */}
-              <div className="relative h-full rounded-2xl p-0.5 md:col-span-2 lg:col-span-1">
+              <div className="relative h-full rounded-2xl p-0.5">
                 <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
                 <div className="relative z-10 h-full rounded-2xl bg-neutral-950 p-4 flex flex-col space-y-3">
                   <h4 className="text-xl font-semibold flex items-center gap-2 text-white">
@@ -156,6 +156,27 @@ export default function About() {
                       "AI API Integration", "Prompt Engineering", "Workflow Automation (n8n)"
                     ].map((skill) => (
                       <span key={skill} className="skill-badge text-sm bg-red-900/20 text-red-100 border-red-800/30">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Cyber Security */}
+              <div className="relative h-full rounded-2xl p-0.5">
+                <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
+                <div className="relative z-10 h-full rounded-2xl bg-neutral-950 p-4 flex flex-col space-y-3">
+                  <h4 className="text-xl font-semibold flex items-center gap-2 text-white">
+                    <span className="w-2 h-8 bg-cyan-500 rounded-full inline-block"></span>
+                    Cyber Security
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "Network Security", "Penetration Testing", "Vulnerability Assessment", 
+                      "Incident Response", "Cryptography", "SIEM"
+                    ].map((skill) => (
+                      <span key={skill} className="skill-badge text-sm bg-cyan-900/20 text-cyan-100 border-cyan-800/30">
                         {skill}
                       </span>
                     ))}

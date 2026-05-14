@@ -35,21 +35,23 @@ export default function Navbar() {
   ]
 
   return (
-    <motion.nav
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm"
-          : "bg-transparent"
-      )}
+      className="fixed top-4 inset-x-0 z-50 mx-auto w-full max-w-5xl px-4 transition-all duration-300"
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+      <nav
+        className={cn(
+          "flex h-14 items-center justify-between px-6 rounded-full transition-all duration-300",
+          scrolled
+            ? "bg-background/90 backdrop-blur-md border border-border shadow-lg"
+            : "bg-background/50 backdrop-blur-md border border-border/50 shadow-sm"
+        )}
+      >
         <Link
           href="/"
-          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 hover:opacity-80 transition-opacity"
+          className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 hover:opacity-80 transition-opacity"
         >
           Sayed Saad
         </Link>
@@ -61,7 +63,7 @@ export default function Navbar() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="relative text-sm font-medium text-muted-foreground hover:text-primary transition-colors group py-2"
+                  className="relative text-sm font-medium text-foreground/70 hover:text-foreground transition-colors group py-2"
                 >
                   {item.name}
                   <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -77,7 +79,7 @@ export default function Navbar() {
                 size="icon"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="Toggle theme"
-                className="rounded-full hover:bg-accent hover:text-accent-foreground"
+                className="h-8 w-8 rounded-full hover:bg-accent hover:text-accent-foreground"
               >
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -87,14 +89,14 @@ export default function Navbar() {
                     exit={{ y: 20, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                    {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                   </motion.div>
                 </AnimatePresence>
               </Button>
             )}
 
             <Link href="/Saad_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              <Button size="sm" className="hidden lg:flex rounded-full px-6 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20">
+              <Button size="sm" className="hidden lg:flex h-8 rounded-full px-5 bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm">
                 Resume
               </Button>
             </Link>
@@ -109,40 +111,40 @@ export default function Navbar() {
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
-              className="rounded-full"
+              className="h-8 w-8 rounded-full"
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
           )}
-          <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-foreground">
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <Button variant="ghost" size="icon" onClick={toggleMenu} className="h-8 w-8 text-foreground rounded-full">
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden border-b border-border/40 bg-background/95 backdrop-blur-xl overflow-hidden"
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-16 left-4 right-4 rounded-2xl border border-border/40 bg-background/95 backdrop-blur-xl overflow-hidden shadow-xl md:hidden"
           >
-            <div className="container mx-auto px-4 py-6 space-y-4 flex flex-col items-center">
+            <div className="flex flex-col items-center px-4 py-6 space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="w-full text-center py-3 text-lg font-medium text-foreground hover:text-primary transition-colors hover:bg-accent/50 rounded-lg"
+                  className="w-full text-center py-2 text-base font-medium text-foreground hover:text-primary transition-colors hover:bg-accent/50 rounded-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 w-full flex justify-center">
-                <Link href="/Saad_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full max-w-xs">
+              <div className="pt-2 w-full flex justify-center border-t border-border/40 mt-2">
+                <Link href="/Saad_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full max-w-xs mt-4">
                   <Button className="w-full rounded-full" size="lg">Resume</Button>
                 </Link>
               </div>
@@ -150,6 +152,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </motion.header>
   )
 }
